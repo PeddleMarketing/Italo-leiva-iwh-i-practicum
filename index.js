@@ -3,7 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const port = 3000;
-const CUSTOM_OBJECT_TYPE = 'p_rpg_class';
+const CUSTOM_OBJECT_TYPE = 'p_rpg_classes';
 
 app.set('view engine', 'pug');
 app.use(express.static('public'));
