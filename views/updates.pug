@@ -1,0 +1,35 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1 Create New RPG Class
+    if error
+      p.error= error
+    
+    form(action="/update-cobj", method="POST")
+      div.form-group
+        label(for="name") Name:
+        input(type="text", name="name", id="name", required, value=formData ? formData.name : '')
+      
+      div.form-group
+        label(for="role") Role:
+        select(name="role", id="role", required)
+          option(value="", selected=!formData) Select a role
+          option(value="Warrior", selected=formData && formData.role === "Warrior") Warrior
+          option(value="Mage", selected=formData && formData.role === "Mage") Mage
+          option(value="Ranger", selected=formData && formData.role === "Ranger") Ranger
+          option(value="Healer", selected=formData && formData.role === "Healer") Healer
+          option(value="Rogue", selected=formData && formData.role === "Rogue") Rogue
+      
+      div.form-group
+        label(for="level") Level:
+        input(type="number", name="level", id="level", min="1", max="100", required, value=formData ? formData.level : '1')
+      
+      div.form-group
+        label(for="specialization") Specialization:
+        input(type="text", name="specialization", id="specialization", value=formData ? formData.specialization : '')
+      
+      div.form-actions
+        button(type="submit") Create RPG Class
+        a(href="/") Return to the homepage
