@@ -1,0 +1,26 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1 RPG Classes
+    p
+      a(href='/update-cobj') Add new character to this table
+    table
+      thead
+        tr
+          th Name
+          th Role
+          th Level
+          th Specialization
+      tbody
+        if objects && objects.length
+          each object in objects
+            tr
+              td= object.properties.name
+              td= object.properties.role
+              td= object.properties.level
+              td= object.properties.specialization
+        else
+          tr
+            td(colspan='4') No RPG classes found
